@@ -1,0 +1,34 @@
+name: CI/CD Simple 
+ 
+on: 
+  push: 
+    branches: [ main ] 
+ 
+jobs: 
+  build: 
+    runs-on: ubuntu-latest 
+ 
+    steps: 
+      - name: Clonar repositorio 
+        uses: actions/checkout@v3 
+ 
+      - name: Instalar Node.js 
+        uses: actions/setup-node@v3 
+        with: 
+          node-version: '18' 
+ 
+      - name: Instalar dependencias 
+        run: npm ci || npm install 
+ 
+      - name: Dar permisos a Jest 
+        run: chmod +x ./node_modules/.bin/jest 
+ 
+      - name: Ejecutar pruebas 
+        run: npx jest --runInBand 
+ 
+  deploy: 
+    needs: build 
+    runs-on: ubuntu-latest 
+    steps: 
+      - name: Simular despliegue 
+        run: echo "🚀 Desplegando aplicación..."
