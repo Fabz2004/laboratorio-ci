@@ -4,7 +4,7 @@ describe("generarResumen (Grupo 6)", () => {
   test("éxito: retorna texto con cliente, cantidad y total", () => {
     const productos = [
       { precio: 20, cantidad: 2 }, 
-      { precio: 5,  cantidad: 3 }, 
+      { precio: 5,  cantidad: 2 }, 
     ];
     const descuento = 10; 
     const texto = generarResumen("Valeria", productos, descuento);

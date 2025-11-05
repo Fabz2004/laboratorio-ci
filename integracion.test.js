@@ -1,4 +1,3 @@
-// integracion.test.js
 const { calcularTotalPedido } = require('./pedido');
 const { generarResumen } = require('./funcionGrupo6');
 
